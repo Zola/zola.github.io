@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoHan – 自動簡繁轉換</title>
+      <meta property="og:title" content="AutoHan &#8211; 自動簡繁轉換"/>
+      <meta name="twitter:title" content="AutoHan &#8211; 自動簡繁轉換">
+    <meta property="og:description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。"/>
+    <meta name="description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。"/>
+    <meta name="twitter:description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。">
+    <meta property="og:site_name" content="AutoHan Official Site"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.autohan.org"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zuolatech">
+    <meta name="twitter:creator" content="@zuolatech">
+    <meta property="og:image" content="https://ps.w.org/autohan/assets/banner-772x250.jpg?rev=2542360"/>
+    <meta name="twitter:image" content="https://ps.w.org/autohan/assets/banner-772x250.jpg?rev=2542360">
+    <meta name="twitter:image:alt" content="自動簡繁轉換">
+    <meta name="thumbnail" content="https://ps.w.org/autohan/assets/icon-256x256.png?rev=2542360"/>
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+      <style>
+
+body {
+  color: #000;
+font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+
+  color: #463ff7
+}
+
+#app a {
+  text-decoration: none;
+
+
+  
+}
+a:hover {
+  text-decoration: none;
+ font-weight: normal;
+    color: #ffa07a
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+  margin: 0.25rem 0;
+    font-family:-apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+hr {
+  opacity: 0.6;
+    width: 95%
+}
+
+code {
+  word-break: break-all;
+  display: inline-block;
+  padding: 1rem;
+  border-left: 3px solid #808080;
+  background-color: #3a3a3a;
+  color: #ccc;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+code.inline {
+  margin-top: 0;
+  padding: 0.1rem;
+  border-left: 0;
+  font-size: inherit;
+}
+
+nav {
+  background-color: rgb(51, 51, 51, 0.92);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+nav a {
+  color: #fff;
+  float: right;
+  padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+  color: #ffa07a
+}
+
+footer {
+  padding-top: 1rem;
+  opacity: 0.7;
+
+
+}
+
+#forCopy {
+  display: none;
+}
+
+.container {
+font-family:-apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei, sans-serif;
+  width: auto;
+  max-width: 960px;
+  margin: auto auto 2rem;
+  padding: 1rem;
+}
+.banner{
+
+    background-image: url(images/bg.svg);
+background-size: cover;
+    background-color: aqua;
+}
+.clear {
+  clear: both;
+}
+.byline{
+    padding-bottom: 5em;
+          }
+/*
+ * App container
+ */
+#app {
+  color: #000;
+    background:#eaecf2;
+ background-image: url(images/bg.svg);
+background-size: cover;
+
+  padding: 4rem 0;
+  max-width: 100%;
+}
+
+/*
+ * App
+ */
+#sriApp {
+  font-size: 1.5rem;
+}
+#sriApp li {
+  font-size: 1.3rem;
+}
+#sriApp pre {
+  font-size: 1rem;
+}
+#sriApp input,
+#sriApp select {
+  font-size: 0.9rem;
+  height: 2.25rem;
+  display: inline-block;
+}
+
+#sriApp input[type="url"],
+#sriApp select {
+  background-color: #fff;
+  color: #767676;
+  border: 1px solid #ccc;
+}
+
+#sriApp input[type="url"] {
+  width: 60%;
+  padding: 0 2%;
+}
+
+#sriApp select {
+  width: 10%;
+  text-align: center;
+}
+
+#sriApp input[type="submit"],
+#sriCopy {
+  cursor: pointer;
+  color: #fff;
+  background-color: #007da6;
+  width: 20%;
+}
+
+#sriApp label {
+ 
+}
+
+#sriApp iframe {
+  width: calc(100% - 2rem);
+  height: 5rem;
+  padding: 1rem;
+  border: none;
+  border-left: 3px solid #808080;
+  background-color: #3a3a3a;
+  margin: 1rem 0 0;
+}
+
+#sriSnippet {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  white-space: pre-line;
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+#sriCopy {
+  width: 4rem;
+}
+
+#sriSnippet.is-active {
+  padding: 1rem;
+  word-break: break-all;
+}
+
+#sriError {
+  font-size: 16pt;
+  text-align: left;
+  background-color: #ffb6c1;
+}
+.w3-top, .w3-bottom {
+    position: fixed;
+    width: 100%;
+    z-index:1
+}
+
+.w3-top {
+    top:0
+}
+
+.w3-bottom {
+    bottom: 0
+}
+#about{top:4em;
+    position: relative
+          }
+#hanzisvg{float: left;margin: 0.5em 1em 0 0;width:190px;}
+        
+.btn{
+  padding: 0px;
+ 
+    background-color: rgb(51, 51, 51, 0.42);
+  border-radius: 4px;
+  color:  #fff;
+  cursor: pointer;
+}
+.btn::before{
+  content:'世界各地';
+}
+.exp{
+  display:none;
+    height: 1px;
+    float: right;
+    visibility: hidden;
+}
+.exp:checked+.text .btn::before{
+  content:'台灣、越南、韓國、日本、新加坡、馬來西亞、印度尼西亞、中國、香港、澳門等地'
+}
+       
+/*
+ * Mobile styling
+ */
+
+@media (max-width: 960px) {
+  nav {
+    padding: 0.75rem 0;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    float: none;
+  }
+
+  nav a + a {
+    margin-left: 1rem;
+  }
+.container {
+  width: auto;
+
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+}
+
+  h1 {
+      margin-top: 1em;
+    font-size: 2rem;
+  }
+
+  #app {
+    padding: 1rem 0 0.25rem;
+   
+  }
+
+  #sriForm {
+    margin-bottom: 0.75rem;
+  }
+  #sriApp input {
+    margin-top: 0.75rem;
+  }
+  #sriApp input[type="url"] {
+    width: 96%; /* 100% - 2%(padding) * 2(both side) */
+  }
+  #sriApp select {
+    min-width: 100px;
+  }
+  #sriSnippet {
+    font-size: 0.9rem;
+  }
+    #logo {
+    width: 140px;padding-top: 11px;
+  }  
+     .donate-icon {
+    width: 80px
+  } 
+    #about{top:0em;
+    position: relative
+          }
+#hanzisvg{float: left;margin: 0.5em 1em 1em 0em;width: 140px;}
+}
+      </style> 
+    <script type="text/javascript">
+    var languages = window.navigator.userLanguage || window.navigator.language;
+    //
+    //跳轉到HTTPS頁面
+    if (("https:" != document.location.protocol)&&(document.location.hostname.indexOf('autohan') != -1)) {
+       document.location.href = "https://www.autohan.org/";
+    }
+    //-->
+    </script>
+  </head>
+  <body>
+       <nav class="w3-top">
+           <a href="#donate">赞助</a>
+      <a href="#about">关于</a>
+          
+       <a href='javascript:AutoHan_StranBody()' id='StranLink'>简体界面</a>
+      <br class="clear">
+          
+    </nav>
+      
+          <div id="app" class="container">
+      <div class="container " id="sriAppContainer">
+          
+         
+        <div id="sriApp">  
+          <h1>AutoHan – 自动简繁转换</h1>
+           
+               <input id="exp1" class="exp" type="checkbox">
+            
+      <p  class="text"><a href="https://zh.wikipedia.org/wiki/汉字"><img src="images/hanzi.svg"  alt="汉" title="汉" align="top" id="hanzisvg"></a>汉字<sup >[<a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a> <a href="https://en.wikipedia.org/wiki/hanzi">Hanzi</a>]</sup>不止汉族在使用，在<label class="btn" for="exp1"></label>的其他种族也在使用汉字。汉字写法多样，导致各地汉语使用者有不同汉字阅读习惯。AutoHan 项目是一段可嵌入到网页的 JavaScript 代码，能根据浏览器预设接受的语言类型<script>document.write('（当前是 '+languages+' ）')</script>自动切换至使用者偏好的繁体汉字或简体汉字。</p>  
+      
+
+      
+      本插件有不同的应用场景：
+      <ol>
+          <li>在 Chrome 的网上应用店搜索 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 插件即可自动安装，也可<a href="/autohan_chrome_extension.zip">下载</a>后<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手动安装</a>。即可手动将正在浏览的网页切换至繁体汉字界面或简体汉字界面，从而加快阅读速度。</li>
+          <li>在 WordPress 中搜索 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 插件即可自动安装，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下载</a>后手动安装。即可让你的网站自动切换至使用者偏好的繁体汉字或简体汉字。</li>
+          
+            <li>如果你在制作网页，在网页尾部嵌入以下代码，即可像本站一样自动切换至使用者偏好的繁体汉字或简体汉字。
+      <pre id="sriSnippet" name="sriSnippet" class="is-active"><span style="color: #ffa07a">&lt;script src=</span><span style="color:#abe338">"https://www.autohan.org/js/Std_StranJF.js"</span> <span style="color: #ffa07a">integrity=</span><span style="color:#abe338">"sha384-dCV+UmPZoyu+EQKH2Feh0Omt4XRyIZT8QOsbFvLIr022OVZg9WmgIctnlHCnEJiX"</span> <span style="color: #ffa07a">crossorigin=</span><span style="color:#abe338">"anonymous"</span><span style="color: #ffa07a">&gt;&lt;/script&gt;</span></pre>
+                 <p>手动切换代码：<br><code>
+            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'StranLink'</span><span style="color: #ffa07a">&gt;</span>繁体界面<span style="color: #ffa07a">&lt;/a&gt;
+            
+            </span></code> </p>
+      </li></ol> 
+      
+            
+          
+        
+        
+        </div>
+      </div> <a id="about" >&nbsp;</a>
+    </div>
+     
+        <!-- About -->
+    <section  class="container">
+      <img src="images/logo.svg" width="235" id="logo" alt="汉" title="汉" style="float: right"><h2>为何需要转换</h2>
+      <p>有的人阅读繁体字比较吃力，有的人阅读简体字比较吃力。AutoHan 自动繁简转换项目致力于帮助阅读汉字的使用者。</p><p>GB2312 编码的字库收录 6763 个汉字，但不能显示繁体字；港澳台等地用的 BIG5 编码收录 13060 个汉字，但不能显示简体字。现在普遍的是 UTF-8 编码，能同时显示繁体和简体。</p><p>AutoHan 是一段能自动将 1275 个简体字及繁体字进行对应转换的 JavaScript 代码，可以用于 <a href="https://cn.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome</a> 和任意汉字网站，帮助你或你的网站访客提高阅读速度。可成为民宿、电商、个人网站的简易的多语言界面解决方案，提高客户转化率，且不會減慢您的網站速度。</p>
+        <p>注意，AutoHan 并不负责把“贾伯斯”转换为“乔布斯”，也不会把“賓士”转换成“奔驰”，不会把“汉人”转换为“华人”，不会转换“台湾”为“中华台北”。</p>
+
+<h2>运作方式介绍</h2>
+        <p>透过辨识浏览器预设优先支援的语言类型（你现在的浏览器语言是<script>document.write(languages)</script>），来决定作何种转换。习惯繁体汉字的读者看到的是繁体内容，习惯简体汉字的人看到的是简体内容。
+
+还能借助浏览器 cookies 来记住你偏好的语言的设定。使用者可以<a href="https://support.google.com/chrome/answer/173424">变更 Google Chrome 浏览器的语言</a>优先顺序，测试这个网站在不同地区的语言的浏览器里的不同表现。</p><p>
+        
+
+<h2>如何提供反馈</h2>
+<p style="margin-bottom: 2rem"><a id="donate" > </a> 传送电子邮件至 <a href="mailto:zuola.com@gmail.com?subject=关于Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技术支援论坛</a>提供意见反应。</p>
+        
+        
+        <h2>如何提供赞助</h2>
+<p>感谢您使用 AutoHan！ 您的赞助对我是非常重要的鼓励。
+    
+    想要支援我吗？下面是一些打赏的方法：<br>
+<table style="width:100%"> <tbody><tr><td align="center"><a href="https://www.paypal.com/paypalme/zuoia/1"><img src="images/paypal_donate.svg" width="140" class="donate-icon"></a></td><td align="center"><a href="https://cash.app/$zuola"><img src="images/cash_donate.svg" width="140" class="donate-icon"></a></td><td align="center"><img src="images/wechat_donate.svg" width="140" class="donate-icon"></td><td align="center"><img src="images/alipay_donate_t.svg" width="140" class="donate-icon"></td></tr></tbody></table>
+           </p>
+          </section>
+    <script language="JavaScript" src="https://www.autohan.org/js/Std_StranJF.js" integrity="sha384-dCV+UmPZoyu+EQKH2Feh0Omt4XRyIZT8QOsbFvLIr022OVZg9WmgIctnlHCnEJiX" crossorigin="anonymous" type="text/javascript"></script>
+   <section class="container">  
+        <h2>成为企业赞助商</h2>
+       <p>本项目维护者<a href="https://www.zuola.com/">佐拉</a>投入了大量精力和时间提供无缝体验，甚至为了提供顶级用户体验，还使用了业内昂贵的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服务，提供低至0.4ms的 ICMP 响应速度，同时支援 ipv6 和 ipv4，本站提供的 JavaScript 代码、Chrome扩展程式、WordPress 插件均不收集用户的个人信息。欢迎企业提供赞助，共同覆盖网络租用开支，共襄盛举。
+<table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top">        
+    USD$100 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的青铜赞助商&body=HI，Zola，我看到了AutoHan，我想成为青铜赞助商。" style="float: right;padding-right: 3em;;display: block">选择</a><hr style="clear: both"> 
+<span style="clear: both;display: block">青铜赞助商</span> <hr>可在本站首页底部放一个小LOGO <hr></td><td style="width:33%;vertical-align: text-top">
+USD$250 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的白银赞助商&body=HI，Zola，我看到了AutoHan，我想成为白银赞助商。" style="float: right;padding-right: 3em;display: block">选择</a><hr style="clear: both;"> 
+<span style="clear: both;display: block">白银赞助商</span> <hr>可在本站首页放一个醒目的LOGO <hr></td><td style="width:34%;vertical-align: text-top">
+USD$500 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的黄金赞助商&body=HI，Zola，我看到了AutoHan，我想成为黄金赞助商。" style="float: right;padding-right: 3em;display: block">选择</a><hr style="clear: both">   
+<span style="clear: both;display: block">黄金赞助商</span> <hr>可在本站首页放一个醒目的LOGO和链接 <hr>
+        </td></tr></tbody></table>
+        
+        </p>
+       
+        <h2>企业赞助商</h2>
+       <table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top">  
+       <h4>金牌赞助商</h4>
+           <hr></td><td style="width:33%;vertical-align: text-top">
+           	<h4>白银赞助商</h4>	
+            <hr></td><td style="width:33%;vertical-align: text-top">
+           	<h4>青铜赞助商</h4>	
+           <hr></td></tr>
+           
+         <tr><td style="width:33%;vertical-align: text-top">  
+        <a href="https://www.xn--qqq44c53cd8xokat1ttz0brw1c.com/">Zuolatech</a>
+           <hr></td><td style="width:33%;vertical-align: text-top">
+            <a href="https://www.wordpress.org">WordPress</a>
+            <hr></td><td style="width:33%;vertical-align: text-top">
+           <a href="https://www.srihash.org">Srihash</a>
+           <hr></td></tr>  </tbody></table>    
+  </section>
+  <!-- Footer -->
+    <footer class="container">
+      <span class="byline">由 <span class="author vcard"><a class="url fn n"  href="https://www.xn--qqq44c53cd8xokat1ttz0brw1c.com/">ZUOLA TECHNOLOGY CO,. LTD.</a></span> 開發</span> 
+    </footer>
+
+
+<!-- GDPR cookie consent --> 
+<div class="consent w3-bottom   w3-center" id="consentbutton" style="background-color:rgba(58, 58, 58, 0.92);color:white" >
+  <p style="text-align: center">
+   <span  style="color:#abe338">我们使用 cookie 来记住你的语言偏好。  </span>  <a href="#" onclick="this.parentElement.style.display='none'; agree(); return false;" class="w3-margin-left ">
+    <button style="font-size:0.9em;padding:5px 15px" autofocus>
+    好    </button>
+    </a> </p>
+</div>
+<script>
+	function disagree() { 
+	document.cookie="consentcookie=disagree; expires=Thu, 18 Dec 1970 12:00:00 GMT; path=/;";
+}
+	function agree() { 
+	var d = new Date();
+	d.setTime(d.getTime()+(365*24*60*60));
+	var expires = "expires="+d.toGMTString();
+	document.cookie="consentcookie=agree; " + expires+ "; path=/;";
+}
+    var consentcookie =getCookie('consentcookie')
+    if(consentcookie == 'agree'){
+        document.getElementById("consentbutton").style.display = "none";
+        }
+</script>
+  </body>
+</html>
