@@ -374,6 +374,11 @@ background-size: cover;
           }
 #hanzisvg{float: left;margin: 0.5em 1em 1em 0em;width: 140px;}
 }
+    #video {
+            width: 100%;
+            height: 50vh; /* 使用視口高度的 50% */
+            border: 0; /* 移除邊框 */
+        }
       </style> 
     <script type="text/javascript">
     var languages = window.navigator.userLanguage || window.navigator.language;
@@ -450,8 +455,8 @@ background-size: cover;
 <h2>運作方式介紹</h2>
         <p>透過辨識瀏覽器預設優先支援的語言型別（你現在的瀏覽器語言是<script>document.write(languages)</script>），來決定作何種轉換。習慣繁體漢字的讀者看到的是繁體內容，習慣簡體漢字的人看到的是簡體內容。
 
-還能借助瀏覽器 cookies 來記住你偏好的語言的設定。使用者可以<a href="https://support.google.com/chrome/answer/173424">變更 Google Chrome 瀏覽器的語言</a>優先順序，測試這個網站在不同地區的語言的瀏覽器裡的不同表現。</p><p>
-        
+還能借助瀏覽器 cookies 來記住你偏好的語言的設定。使用者可以<a href="https://support.google.com/chrome/answer/173424">變更 Google Chrome 瀏覽器的語言</a>優先順序，測試這個網站在不同地區的語言的瀏覽器裡的不同表現。</p><p><iframe id="video" width="100%" height="450" src="https://www.youtube.com/embed/ZVzJm9aM98Y?si=H4-CBm2KhFJSlHP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </p>
 
 <h2>如何提供反饋</h2>
 <p style="margin-bottom: 2rem"><a id="donate" > </a> 傳送電子郵件至 <a href="mailto:zuola.com@gmail.com?subject=關於Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技術支援論壇</a>提供意見反應。</p>
@@ -545,5 +550,20 @@ USD$5000 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan�
         document.getElementById("consentbutton").style.display = "none";
         }
 </script>
+      
+      <script>
+        function adjustVideoHeight() {
+    const iframe = document.getElementById('video');
+    const width = iframe.offsetWidth; // 獲取 iframe 的寬度
+    const height = width * (9 / 16);  // 按 16:9 比例計算高度
+    iframe.style.height = (height+1) + 'px'; // 設置高度
+}
+
+        // 初始調整高度
+        adjustVideoHeight();
+
+        // 當視口大小改變時自動調整
+        window.addEventListener('resize', adjustVideoHeight);
+    </script>
   </body>
 </html>
