@@ -24,10 +24,10 @@
       <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
 <link rel="icon" type="image/png" href="favicon.png">
       <style>
-
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700");         
 body {
   color: #000;
-font-family: sans-serif;
+    font-family: "Noto Sans TC", "Open Sans", "Roboto Slab", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -107,17 +107,17 @@ code.inline {
     display: flex;
     flex-wrap: wrap; /* 允許換行 */
     justify-content: center; /* 置中排列 */
-    gap: 2em 3em; /* 圖片間距 */
+    gap: 2em 2em; /* 圖片間距 */
     padding: 1em;
     box-sizing: border-box;
 }
 
 .image-container img {
     width: 100%; /* 確保圖片填滿容器 */
-    max-width: 400px; /* 限制最大寬度 */
+    max-width: 250px; /* 限制最大寬度 */
     height: auto; /* 保持圖片比例 */
     padding: 1em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1); /* 新增陰影效果 */
     border-radius: 8px; /* 圖片圓角 */
 }
 nav {
@@ -296,7 +296,7 @@ background-size: cover;
     visibility: hidden;
 }
 .exp:checked+.text .btn::before{
-  content:'台灣、越南、韓國、日本、新加坡、馬來西亞、印度尼西亞、中國、香港、澳門等地'
+  content:'臺灣、越南、韓國、日本、新加坡、馬來西亞、印度尼西亞、中國、香港、澳門等地'
 }
        
 /*
@@ -305,19 +305,19 @@ background-size: cover;
 /* 手機 (每排顯示1個) */
 @media (max-width: 480px) {
     .image-container img {
-        flex: 0 0 100%; /* 每個圖片占滿100%寬度 */
+        flex: 0 0 100%; /* 每個圖片佔滿100%寬度 */
     }
 }
 
 /* 大螢幕 (每排顯示最多5個) */
 @media (min-width: 961px) {
     .image-container img {
-        flex: 0 0 calc((100% - 2px) / 5); /* 每個圖片占1/5空間，包含間距 */
+        flex: 0 0 calc((100% - 2px) / 15); /* 每個圖片佔1/5空間，包含間距 */
     }
 @media (max-width: 960px) {
     /* 中等螢幕 (每排顯示3個) */
      .image-container img {
-        flex: 0 0 calc((100% - 2px) / 3); /* 每個圖片占1/3空間，包含間距 */
+        flex: 0 0 calc((100% - 2px) / 15); /* 每個圖片佔1/3空間，包含間距 */
     }
     
   nav {
@@ -387,10 +387,10 @@ background-size: cover;
   </head>
   <body>
        <nav class="w3-top"><img src="images/z_letter_logo.svg" width="35" style="margin: 6px 0 0 13px">
-           <a href="#donate">赞助</a>
-      <a href="#about">关于</a>
+           <a href="#donate">贊助</a>
+      <a href="#about">關於</a>
           
-       <a href='javascript:AutoHan_StranBody()' id='StranLink'>简体界面</a>
+       <a href='javascript:AutoHan_StranBody()' id='StranLink'>簡體介面</a>
       <br class="clear">
           
     </nav>
@@ -400,29 +400,28 @@ background-size: cover;
           
          
         <div id="sriApp">  
-          <h1>AutoHan – 自动简繁转换</h1>
+          <h1>AutoHan – 自動簡繁轉換</h1>
            
                <input id="exp1" class="exp" type="checkbox">
             
-      <p  class="text"><a href="https://zh.wikipedia.org/wiki/汉字"><img src="images/hanzi.svg"  alt="汉" title="汉" align="top" id="hanzisvg"></a>汉字<sup >[<a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a> <a href="https://en.wikipedia.org/wiki/hanzi">Hanzi</a>]</sup>不止汉族在使用，在<label class="btn" for="exp1"></label>的其他种族也在使用汉字。汉字写法多样，导致各地汉语使用者有不同汉字阅读习惯。AutoHan 项目是一段可嵌入到网页的 JavaScript 代码，能根据浏览器预设接受的语言类型<script>document.write('（当前是 '+languages+' ）')</script>自动切换至使用者偏好的繁体汉字或简体汉字。</p>  
+      <p  class="text"><a href="https://zh.wikipedia.org/wiki/漢字"><img src="images/hanzi.svg"  alt="漢" title="漢" align="top" id="hanzisvg"></a>漢字<sup >[<a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a> <a href="https://en.wikipedia.org/wiki/hanzi">Hanzi</a>]</sup>不止漢族在使用，在<label class="btn" for="exp1"></label>的其他種族也在使用漢字。漢字寫法多樣，導致各地漢語使用者有不同漢字閱讀習慣。AutoHan 專案是一段可嵌入到網頁的 JavaScript 程式碼，能根據瀏覽器預設接受的語言型別<script>document.write('（當前是 '+languages+' ）')</script>自動切換至使用者偏好的繁體漢字或簡體漢字。</p>  
       
 
       
-      本插件有不同的应用场景：
+      本外掛有不同的應用場景：
       <ol>
-          <li>在 Chrome 的网上应用店搜索 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 插件即可自动安装，也可<a href="/autohan_chrome_extension.zip">下载</a>后<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手动安装</a>。即可手动将正在浏览的网页切换至繁体汉字界面或简体汉字界面，从而加快阅读速度。</li>
-          <li>在 WordPress 中搜索 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 插件即可自动安装，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下载</a>后手动安装。即可让你的网站自动切换至使用者偏好的繁体汉字或简体汉字。</li>
+          <li>在 Chrome 的網上應用店搜尋 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 外掛即可自動安裝，也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。即可手動將正在瀏覽的網頁切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。</li>
+          <li>在 WordPress 中搜索 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 外掛即可自動安裝，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下載</a>後手動安裝。即可讓你的網站自動切換至使用者偏好的繁體漢字或簡體漢字。</li>
           
-            <li>如果你在制作网页，在网页尾部嵌入以下代码，即可像本站一样自动切换至使用者偏好的繁体汉字或简体汉字。
+            <li>如果你在制作網頁，在網頁尾部嵌入以下程式碼，即可像本站一樣自動切換至使用者偏好的繁體漢字或簡體漢字。
       <pre id="sriSnippet" name="sriSnippet" class="is-active"><span style="color: #ffa07a">&lt;script src=</span><span style="color:#abe338">"https://www.autohan.org/js/Std_StranJF.js"</span> <span style="color: #ffa07a">integrity=</span><span style="color:#abe338">"sha384-dCV+UmPZoyu+EQKH2Feh0Omt4XRyIZT8QOsbFvLIr022OVZg9WmgIctnlHCnEJiX"</span> <span style="color: #ffa07a">crossorigin=</span><span style="color:#abe338">"anonymous"</span><span style="color: #ffa07a">&gt;&lt;/script&gt;</span></pre>
-                 <p>手动切换代码：<br><code>
-            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'StranLink'</span><span style="color: #ffa07a">&gt;</span>繁体界面<span style="color: #ffa07a">&lt;/a&gt;
+                 <p>手動切換程式碼：<br><code>
+            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'StranLink'</span><span style="color: #ffa07a">&gt;</span>繁體介面<span style="color: #ffa07a">&lt;/a&gt;
             
             </span></code> </p>
       </li></ol> 
       
-            
-          
+       
         
         
         </div>
@@ -431,57 +430,79 @@ background-size: cover;
      
         <!-- About -->
     <section  class="container">
-      <img src="images/logo.svg" width="235" id="logo" alt="汉" title="汉" style="float: right"><h2>为何需要转换</h2>
-      <p>有的人阅读繁体字比较吃力，有的人阅读简体字比较吃力。AutoHan 自动繁简转换项目致力于帮助阅读汉字的使用者。</p><p>GB2312 编码的字库收录 6763 个汉字，但不能显示繁体字；港澳台等地用的 BIG5 编码收录 13060 个汉字，但不能显示简体字。现在普遍的是 UTF-8 编码，能同时显示繁体和简体。</p><p>AutoHan 是一段能自动将 1275 个简体字及繁体字进行对应转换的 JavaScript 代码，可以用于 <a href="https://cn.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome</a> 和任意汉字网站，帮助你或你的网站访客提高阅读速度。可成为民宿、电商、个人网站的简易的多语言界面解决方案，提高客户转化率，且不會減慢您的網站速度。</p>
-        <p>注意，AutoHan 并不负责把“贾伯斯”转换为“乔布斯”，也不会把“賓士”转换成“奔驰”，不会把“汉人”转换为“华人”，不会转换“台湾”为“中华台北”。</p>
-
-<h2>运作方式介绍</h2>
-        <p>透过辨识浏览器预设优先支援的语言类型（你现在的浏览器语言是<script>document.write(languages)</script>），来决定作何种转换。习惯繁体汉字的读者看到的是繁体内容，习惯简体汉字的人看到的是简体内容。
-
-还能借助浏览器 cookies 来记住你偏好的语言的设定。使用者可以<a href="https://support.google.com/chrome/answer/173424">变更 Google Chrome 浏览器的语言</a>优先顺序，测试这个网站在不同地区的语言的浏览器里的不同表现。</p><p>
+      <img src="images/logo.svg" width="235" id="logo" alt="漢" title="漢" style="float: right"><h2>為何需要繁簡轉換？</h2>
+        <h4>文化背景</h4>
+      <p>由於不同國家的文化背景的差異，部分讀者在閱讀未被簡化的繁體字（<a href="https://zh.wikipedia.org/wiki/正体字">正體字</a>）時會感到吃力，而另一些讀者則在閱讀簡化的簡體字和<a href="https://zh.wikipedia.org/wiki/异体字">異體字</a>時遇到困難。AutoHan 自動繁簡轉換專案專為解決這一問題設計，旨在幫助所有使用漢字的讀者更輕鬆地理解內容。</p>
+        <h4>技術背景</h4>
+        <p>早期的 GB2312 編碼支持 6763 個簡體漢字，但無法顯示繁體字；而港澳臺等地使用的 BIG5 編碼則支持 13060 個繁體漢字，但同樣無法顯示簡體字。如今，通用的 UTF-8 編碼能同時顯示繁體和簡體字，甚至支持 emoji 表情符號及其他新字符，但異體字轉換需求仍未被滿足。</p>
+        <h4>我們的解決方案</h4>
+        <p>
+            AutoHan 是一款 JavaScript 工具，能自動對應轉換 1275 個簡體字與繁體字。它適用於 <a href="https://cn.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome 擴展</a> 以及任何漢字網站，有助於提升個人或網站訪客的閱讀效率。這款工具特別適合用於民宿電商、個人網站等場景，為用戶提供簡易的多語言介面解決方案，進一步提升客戶轉化率，同時不影響網站的加載速度。
+            
+             </p>
+         <h4>重要提醒</h4>
+        <p>
+           
+            AutoHan 不支持詞語級的地域用詞轉換，無法將「賓士」轉換成「奔馳」，或將「賈伯斯」轉換為「喬布斯」。若需地域用詞轉換，可使用「<a href="https://zuo.la/hanzi/fanjian.php">線上繁簡轉換</a>」工具體驗 <a href="https://github.com/BYVoid/OpenCC">OpenCC</a> 的地域用詞轉換功能。若需精確的出版級轉換，建議嘗試帶有自定義轉換詞典功能的付費版，可以實現「中華臺北」轉換為「臺灣」，「華人」轉換為「漢人」。
+            
         
 
-<h2>如何提供反馈</h2>
-<p style="margin-bottom: 2rem"><a id="donate" > </a> 传送电子邮件至 <a href="mailto:zuola.com@gmail.com?subject=关于Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技术支援论坛</a>提供意见反应。</p>
+<h2>運作方式介紹</h2>
+        <p>透過辨識瀏覽器預設優先支援的語言型別（你現在的瀏覽器語言是<script>document.write(languages)</script>），來決定作何種轉換。習慣繁體漢字的讀者看到的是繁體內容，習慣簡體漢字的人看到的是簡體內容。
+
+還能借助瀏覽器 cookies 來記住你偏好的語言的設定。使用者可以<a href="https://support.google.com/chrome/answer/173424">變更 Google Chrome 瀏覽器的語言</a>優先順序，測試這個網站在不同地區的語言的瀏覽器裡的不同表現。</p><p>
+        
+
+<h2>如何提供反饋</h2>
+<p style="margin-bottom: 2rem"><a id="donate" > </a> 傳送電子郵件至 <a href="mailto:zuola.com@gmail.com?subject=關於Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技術支援論壇</a>提供意見反應。</p>
         
         
-        <h2>如何提供赞助</h2>
-<p>感谢您使用 AutoHan！ 您的赞助对我是非常重要的鼓励。
+        <h2>如何提供贊助</h2>
+<p>感謝您使用 AutoHan！ 您的贊助對我是非常重要的鼓勵。
     
-    想要支援我吗？下面是一些打赏的方法：</p>
+    想要支援我嗎？下面是一些打賞的方法：</p>
     <div class="image-container">
-        <a href="https://www.paypal.com/paypalme/zuoia/20"><img src="images/paypal_donate.svg"></a>
+        <a  href="https://line.me/R/ch/1586237320/?forwardPath=/c2c/transfer&no=25190077070">  <img src="images/line_donate.svg"></a>
+        
         <a href="https://cash.app/$zuola"><img src="images/cash_donate.svg"></a>
         
-        <img src="images/wechat_donate.svg">
+       <a  href="wxp://f2f0LX4LnkY4sXj6Y8rI0ByAWUc_eWeUtKEi"> <img src="images/wechat_donate.svg"></a>
         
-        <img src="images/alipay_donate_t.svg">
-        <img src="images/line_donate.svg">
+        <a  href="https://qr.alipay.com/apoqy7hwhtbe2dgr0f"><img src="images/alipay_donate_t.svg"></a>
+      
+        <a href="https://www.paypal.com/paypalme/zuoia/20"><img src="images/paypal_donate.svg"></a>
          </div>
            
           </section>
     <script language="JavaScript" src="https://www.autohan.org/js/Std_StranJF.js" integrity="sha384-dCV+UmPZoyu+EQKH2Feh0Omt4XRyIZT8QOsbFvLIr022OVZg9WmgIctnlHCnEJiX" crossorigin="anonymous" type="text/javascript"></script>
    <section class="container">  
-        <h2>成为企业赞助商</h2>
-       <p>本项目维护者<a href="https://www.zuola.com/">佐拉</a>投入了大量精力和时间提供无缝体验，甚至为了提供顶级用户体验，还使用了业内昂贵的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服务，提供低至0.4ms的 ICMP 响应速度，同时支援 ipv6 和 ipv4，本站提供的 JavaScript 代码、Chrome扩展程式、WordPress 插件均不收集用户的个人信息。欢迎企业提供赞助，共同覆盖网络租用开支，共襄盛举。
+        <h2>成為企業贊助商</h2>
+       <p>
+           本專案的維護者<a href="https://www.zuola.com/">佐拉</a>投入了大量時間與精力，致力於為使用者提供無縫的體驗。為了實現頂級的使用者體驗，曾採用業界昂貴的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服務，達到低至 0.4ms 的 ICMP 響應速度，同時全面支援 IPv6 和 IPv4。 </p> <p>
+
+目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 進行主機託管，加之域名 AutoHan.org 已支付未來十年的使用費用。即使維護者不幸去世，只要微軟公司能在十年內持續運營，這個網站仍能穩定運行。</p> <p>
+
+本站提供的 JavaScript 程式碼、<a href="https://chrome.google.com/webstore/search/AutoHan">Chrome 擴充套件</a>和 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress 外掛</a>均不收集使用者的個人資訊，並且完全不涉及商業化。誠摯歡迎各位<a href="#donate">打賞支持</a>，也歡迎企業<a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的贊助商&body=HI，Zola，我看到了AutoHan，我想贊助主機託管費用。" >贊助</a>主機託管費用，共同分擔網路租用成本，讓我們攜手維護這一公益專案。
+           
+            </p>
 <table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top">        
-    USD$100 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的青铜赞助商&body=HI，Zola，我看到了AutoHan，我想成为青铜赞助商。" style="float: right;padding-right: 3em;;display: block">选择</a><hr style="clear: both"> 
-<span style="clear: both;display: block">青铜赞助商</span> <hr>可在本站首页底部放一个小LOGO <hr></td><td style="width:33%;vertical-align: text-top">
-USD$250 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的白银赞助商&body=HI，Zola，我看到了AutoHan，我想成为白银赞助商。" style="float: right;padding-right: 3em;display: block">选择</a><hr style="clear: both;"> 
-<span style="clear: both;display: block">白银赞助商</span> <hr>可在本站首页放一个醒目的LOGO <hr></td><td style="width:34%;vertical-align: text-top">
-USD$500 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan的黄金赞助商&body=HI，Zola，我看到了AutoHan，我想成为黄金赞助商。" style="float: right;padding-right: 3em;display: block">选择</a><hr style="clear: both">   
-<span style="clear: both;display: block">黄金赞助商</span> <hr>可在本站首页放一个醒目的LOGO和链接 <hr>
+    USD$1000 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的青銅贊助商&body=HI，Zola，我看到了AutoHan，我想成為青銅贊助商。" style="float: right;padding-right: 3em;;display: block">選擇</a><hr style="clear: both"> 
+<span style="clear: both;display: block">青銅贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁底部放一個小LOGO <hr></td><td style="width:33%;vertical-align: text-top">
+USD$2500 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的白銀贊助商&body=HI，Zola，我看到了AutoHan，我想成為白銀贊助商。" style="float: right;padding-right: 3em;display: block">選擇</a><hr style="clear: both;"> 
+<span style="clear: both;display: block">白銀贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁放一個醒目的LOGO <hr></td><td style="width:34%;vertical-align: text-top">
+USD$5000 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的黃金贊助商&body=HI，Zola，我看到了AutoHan，我想成為黃金贊助商。" style="float: right;padding-right: 3em;display: block">選擇</a><hr style="clear: both">   
+<span style="clear: both;display: block">黃金贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁放一個醒目的LOGO和連結 <hr>
         </td></tr></tbody></table>
         
-        </p>
        
-        <h2>企业赞助商</h2>
+       
+        <h2>企業贊助商</h2>
        <table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top">  
-       <h4>金牌赞助商</h4>
+       <h4>金牌贊助商</h4>
            <hr></td><td style="width:33%;vertical-align: text-top">
-           	<h4>白银赞助商</h4>	
+           	<h4>白銀贊助商</h4>	
             <hr></td><td style="width:33%;vertical-align: text-top">
-           	<h4>青铜赞助商</h4>	
+           	<h4>青銅贊助商</h4>	
            <hr></td></tr>
            
          <tr><td style="width:33%;vertical-align: text-top">  
@@ -497,14 +518,14 @@ USD$500 每月 <a href="mailto:zuola.com@gmail.com?subject=我想成为AutoHan�
   </section>
   <!-- Footer -->
     <footer class="container">
-      <span class="byline">由 <img src="images/zuola_tech_logo.svg" width="32"><span class="author vcard"><a class="url fn n"  href="https://www.xn--qqq44c53cd8xokat1ttz0brw1c.com/">ZUOLA TECHNOLOGY CO,. LTD.</a></span> 開發</span> 
+        <a href="https://www.autohan.org/">本站</a>代碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，<span class="byline">由 <img src="images/zuola_tech_logo.svg" width="14"><span class="author vcard"> ( <a class="url fn n"  href="https://www.xn--qqq44c53cd8xokat1ttz0brw1c.com/">ZUOLA TECHNOLOGY CO,. LTD.</a> ) </span> 開發</span> ，由 <a href="https://www.github.com/">Github</a> 提供主機託管。
     </footer>
 
 
 <!-- GDPR cookie consent --> 
 <div class="consent w3-bottom   w3-center" id="consentbutton" style="background-color:rgba(58, 58, 58, 0.92);color:white" >
   <p style="text-align: center">
-   <span  style="color:#abe338">我们使用 cookie 来记住你的语言偏好。  </span>  <a href="#" onclick="this.parentElement.style.display='none'; agree(); return false;" class="w3-margin-left ">
+   <span  style="color:#abe338">我們使用 cookie 來記住你的語言偏好。  </span>  <a href="#" onclick="this.parentElement.style.display='none'; agree(); return false;" class="w3-margin-left ">
     <button style="font-size:0.9em;padding:5px 15px" autofocus>
     好    </button>
     </a> </p>
