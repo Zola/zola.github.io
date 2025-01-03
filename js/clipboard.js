@@ -3,7 +3,7 @@ document.querySelectorAll('pre').forEach(pre => {
   // Create the copy button
   const button = document.createElement('button');
   button.classList.add('copy-button');
-  button.innerHTML = '<img src="images/copy.svg" alt="Copy">複製程式碼';
+  button.innerHTML = '<img src="images/copy.svg"  alt="Copy">複製程式碼';
 
   // Append the button to the <pre> block
   pre.style.position = 'relative';
