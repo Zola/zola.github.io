@@ -10,16 +10,16 @@
     <meta property="og:description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。"/>
     <meta name="description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。"/>
     <meta name="twitter:description" content="自動轉換為網站訪客偏好的繁體漢字或簡體漢字，也可以手動切換。">
-    <meta property="og:site_name" content="AutoHan Official Site"/>
+    <meta property="og:site_name" content="AutoHan &#8211; 自動簡繁轉換"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://www.autohan.org"/>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@zuolatech">
     <meta name="twitter:creator" content="@zuolatech">
-    <meta property="og:image" content="https://ps.w.org/autohan/assets/banner-772x250.jpg?rev=2542360"/>
-    <meta name="twitter:image" content="https://ps.w.org/autohan/assets/banner-772x250.jpg?rev=2542360">
+    <meta property="og:image" content="https://www.autohan.org/images/preview.png"/>
+    <meta name="twitter:image" content="https://www.autohan.org/images/preview.png">
     <meta name="twitter:image:alt" content="自動簡繁轉換">
-    <meta name="thumbnail" content="https://ps.w.org/autohan/assets/icon-256x256.png?rev=2542360"/>
+    <meta name="thumbnail" content="https://www.autohan.org/images/preview.png"/>
       <link rel="apple-touch-icon" href="/apple-touch-icon.png">
       <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -238,23 +238,25 @@ background-size: cover;
   margin: 1rem 0 0;
 }
 
-#sriSnippet {
-  padding: 0;
+pre {
+ padding: 1.5rem 16px 16px 16px;
   margin: 0;
   border: 0;
   white-space: pre-line;
   background-color: #3a3a3a;
   color: #fff;
-}
-
-#sriCopy {
-  width: 4rem;
-}
-
-#sriSnippet.is-active {
-  padding: 1rem;
+    
+     
   word-break: break-all;
+      position: relative;
+  
+  
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: auto;
 }
+ 
+
 
 #sriError {
   font-size: 16pt;
@@ -380,6 +382,19 @@ background-size: cover;
             height: 50vh; /* 使用視口高度的 50% */
             border: 0; /* 移除邊框 */
         }
+    .copy-button {
+        cursor: pointer;
+  color: #808080;
+        display: flex; align-items: center;
+        font-size: 1em;
+}
+       .copy-button img {
+  width: 16px;
+  height: 16px;
+}
+    pre {
+  
+}
       </style> 
     <script type="text/javascript">
     var languages = window.navigator.userLanguage || window.navigator.language;
@@ -390,6 +405,7 @@ background-size: cover;
     }
     //-->
     </script>
+        <script src="js/clipboard.js" defer></script>
   </head>
   <body>
        <nav class="w3-top"><img src="images/z_letter_logo.svg" width="35" style="margin: 6px 0 0 13px">
@@ -411,21 +427,21 @@ background-size: cover;
                <input id="exp1" class="exp" type="checkbox">
             
       <p  class="text"><a href="https://zh.wikipedia.org/wiki/漢字"><img src="images/hanzi.svg"  alt="漢" title="漢" align="top" id="hanzisvg"></a>漢字<sup >[<a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a> <a href="https://en.wikipedia.org/wiki/hanzi">Hanzi</a>]</sup>不止漢族在使用，<label class="btn" for="exp1"></label>的其他種族也在使用漢字。漢字寫法多樣，導致各地漢語使用者有不同漢字閱讀習慣。AutoHan 專案是一段可嵌入到網頁的 JavaScript 程式碼，能根據瀏覽器預設接受的語言型別<script>document.write('（當前是 '+languages+' ）')</script>自動切換至使用者偏好的繁體漢字或簡體漢字。</p>  
-      
-
-      
-      本外掛有不同的應用場景：
-      <ol>
-          <li>如果你在制作網站網頁，在網頁尾部嵌入以下程式碼，即可像本站一樣自動切換至使用者偏好的繁體漢字或簡體漢字。
-      <pre id="sriSnippet" name="sriSnippet" class="is-active"><span style="color: #ffa07a">&lt;script src=</span><span style="color:#abe338">"https://www.autohan.org/js/autohan.js"</span> <span style="color: #ffa07a">integrity=</span><span style="color:#abe338">"sha384-HcYLVPAKISYFDMLN840nEZN6mlirhdfRJJtLMT/2TIIuDAseIfSJvsNx+DnPEd6S"</span> <span style="color: #ffa07a">crossorigin=</span><span style="color:#abe338">"anonymous"</span><span style="color: #ffa07a">&gt;&lt;/script&gt;</span></pre>
-                 <p>手動切換程式碼：<br><code>
-            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'StranLink'</span><span style="color: #ffa07a">&gt;</span>繁體介面<span style="color: #ffa07a">&lt;/a&gt;
+     
             
-            </span></code> </p>
+      
+      本程式碼有不同的應用場景：
+      <ol>
+          <li><p>如果你在制作網站網頁，在網頁尾部嵌入以下程式碼，即可像本站一樣自動切換至使用者偏好的繁體漢字或簡體漢字。也可下載 <a href="https://www.autohan.org/js/autohan.js">autohan.js</a> 後手動安裝到你自己的網站。</p>
+      <pre id="sriSnippet" name="sriSnippet" class="is-active"><span style="color: #ffa07a">&lt;script src=</span><span style="color:#abe338">"https://www.autohan.org/js/autohan.js"</span> <span style="color: #ffa07a">integrity=</span><span style="color:#abe338">"sha384-HcYLVPAKISYFDMLN840nEZN6mlirhdfRJJtLMT/2TIIuDAseIfSJvsNx+DnPEd6S"</span> <span style="color: #ffa07a">crossorigin=</span><span style="color:#abe338">"anonymous"</span><span style="color: #ffa07a">&gt;&lt;/script&gt;</span></pre>
+                
+                 <p>添加手動切換程式碼按鈕：</p><pre>
+            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'StranLink'</span><span style="color: #ffa07a">&gt;</span>繁體介面<span style="color: #ffa07a">&lt;/a&gt;</span></pre> 
+              
       </li>
-          <li>在 WordPress 中搜索 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 外掛即可自動安裝，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下載</a>後手動安裝。即可讓你的網站自動切換至使用者偏好的繁體漢字或簡體漢字。</li>
+          <li><p>在 WordPress 中搜索 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 外掛即可自動安裝，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下載</a>後手動安裝。即可讓你的網站自動切換至使用者偏好的繁體漢字或簡體漢字。</p></li>
           
-          <li>在 Chrome 的網上應用店搜尋 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 外掛即可自動安裝，也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。即可手動將正在瀏覽的網頁切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。</li>
+          <li><p>在 Chrome 的網上應用店搜尋 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 外掛即可自動安裝，也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。即可手動將正在瀏覽的網頁切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。</p></li>
           
           
             </ol> 
@@ -443,7 +459,7 @@ background-size: cover;
         <h4>文化背景</h4>
       <p>由於不同國家的文化背景的差異，部分讀者在閱讀未被簡化的繁體字（<a href="https://zh.wikipedia.org/wiki/正体字">正體字</a>）時會感到吃力，而另一些讀者則在閱讀簡化的簡體字和<a href="https://zh.wikipedia.org/wiki/异体字">異體字</a>時遇到困難。AutoHan 自動繁簡轉換專案專為解決這一問題設計，旨在幫助所有使用漢字的讀者更輕鬆地理解內容。</p>
         <h4>技術背景</h4>
-        <p>早期的 GB2312 編碼支持 6763 個簡體漢字，但無法顯示繁體字；而港澳臺等地使用的 BIG5 編碼則支持 13060 個繁體漢字，但同樣無法顯示簡體字。如今，通用的 UTF-8 編碼能同時顯示繁體和簡體字，甚至支持 emoji 表情符號及其他新字符，但異體字轉換需求仍未被滿足。</p>
+        <p>早期的 BIG5 編碼則支持約 13060 個繁體漢字，但無法顯示簡體字和異體字； GB2312 編碼支持 6763 個簡體漢字，但無法顯示繁體字；如今，更為通用的 UTF-8 編碼能同時顯示繁體和簡體字，甚至支持 emoji 表情符號及其他擴充的新字符，但異體字轉換需求仍未被滿足。</p>
         <h4>我們的解決方案</h4>
         <p>
             AutoHan 是一款 JavaScript 工具，能自動對應轉換 1275 個簡體字與繁體字。它適用於 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome 擴展</a> 以及任何漢字網站，有助於提升個人或網站訪客的閱讀效率。這款工具特別適合用於民宿電商、個人網站等場景，為用戶提供簡易的多語言介面解決方案，進一步提升客戶轉化率，同時不影響網站的加載速度。
@@ -457,13 +473,13 @@ background-size: cover;
         
 
 <h2>運作方式介紹</h2>
-        <p>透過辨識瀏覽器預設優先支援的語言型別（你現在的瀏覽器語言是<script>document.write(languages)</script>），來決定作何種轉換。習慣繁體漢字的讀者看到的是繁體內容，習慣簡體漢字的人看到的是簡體內容。
+        <p>透過辨識瀏覽器預設優先支援的語言型別（你現在的優先瀏覽器語言是<script>document.write(languages)</script>），來決定作何種轉換。習慣繁體漢字的讀者看到的是繁體內容，習慣簡體漢字的人看到的是簡體內容。
 
 還能借助瀏覽器 cookies 來記住你偏好的語言的設定。使用者可以<a href="https://support.google.com/chrome/answer/173424">變更 Google Chrome 瀏覽器的語言</a>優先順序，測試這個網站在不同地區的語言的瀏覽器裡的不同表現。</p><p><iframe id="video" width="100%" height="450" src="https://www.youtube.com/embed/ZVzJm9aM98Y?si=H4-CBm2KhFJSlHP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </p>
 
 <h2>如何提供反饋</h2>
-<p style="margin-bottom: 2rem"><a id="donate" > </a> 傳送電子郵件至 <a href="mailto:zuola.com@gmail.com?subject=關於Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技術支援論壇</a>提供意見反應。</p>
+<p style="margin-bottom: 2rem"><a id="donate" > </a> 本專案的維護者是<a href="https://zuo.la">佐拉</a>，歡迎傳送電子郵件至 <a href="mailto:zuola.com@gmail.com?subject=關於Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技術支援論壇</a>提供意見反應。</p>
         
         
         <h2>如何提供贊助</h2>
@@ -492,7 +508,7 @@ background-size: cover;
        <p>
            本專案的維護者<a href="https://www.zuola.com/">佐拉</a>投入了大量時間與精力，致力於為使用者提供無縫的體驗。為了實現頂級的使用者體驗，曾採用業界昂貴的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服務，達到低至 0.4ms 的 ICMP 響應速度，同時全面支援 IPv6 和 IPv4。 </p> <p>
 
-       目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 和 <a href="https://www.Cloudflare.com/">Cloudflare</a> 進行主機託管，加之域名 AutoHan.org <a href="https://who.is/whois/autohan.org">已支付未來十年</a>的使用費用。即使維護者不幸去世，只要 Microsoft 公司和Cloudfalre 公司能在十年內持續運營，這個網站仍能穩定運行。且本站代碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，採用公眾領域<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">無著作權</a>聲明，任何人可複製本站。異體字不會消失，本站功能被使用者需要的需求大概也不會消失。</p> <p>
+       目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 和 <a href="https://www.Cloudflare.com/">Cloudflare</a> 進行主機託管，加之域名 AutoHan.org <a href="https://who.is/whois/autohan.org">已支付未來十年</a>的使用費用。即使維護者<a href="https://zuo.la">佐拉</a>不幸去世，只要 Microsoft 公司和 Cloudfalre 公司能在十年內持續運營，這個網站仍能穩定運行。且本站代碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，採用公眾領域<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">無著作權</a>聲明，任何人可複製本站。異體字不會消失，用戶對本站功能的需求也會持續存在。</p> <p>
 
 本站提供的 JavaScript 程式碼、<a href="https://chrome.google.com/webstore/search/AutoHan">Chrome 擴充套件</a> 和 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress 外掛</a> 均不收集使用者的個人資訊，並且完全不涉及商業化。誠摯歡迎各位<a href="#donate">打賞支持</a>，也歡迎企業<a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的贊助商&body=HI，Zola，我看到了AutoHan，我想贊助主機託管費用。" >贊助</a>主機託管費用，共同分擔網路租用成本，讓我們攜手維護這一公益專案。
            
