@@ -402,25 +402,9 @@ pre {
           <h1>AutoHan – 自動簡繁轉換</h1>
            
                <input id="exp1" class="exp" type="checkbox">
-            
-      <p  class="text"><a href="https://zh.wikipedia.org/wiki/漢字"><img src="images/hanzi.svg"  alt="漢" title="漢" align="top" id="hanzisvg"></a>漢字<sup >[<a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a> <a href="https://en.wikipedia.org/wiki/hanzi">Hanzi</a>]</sup>不止漢族在使用，<label class="btn" for="exp1"></label>的其他種族也在使用漢字。漢字寫法多樣，導致各地漢語使用者有不同漢字閱讀習慣。AutoHan 專案是一段可嵌入到網頁的 JavaScript 程式碼，能根據瀏覽器預設接受的語言型別<script>document.write('（當前是 '+languages+' ）')</script>自動切換至使用者偏好的繁體漢字或簡體漢字。</p>  
+             
      
-            
-      
-      本程式碼有不同的應用場景：
-      <ol>
-          <li><p>如果你在制作網站網頁，在網頁尾部嵌入以下程式碼，即可像本站一樣自動切換至使用者偏好的繁體漢字或簡體漢字。</p>
-      <pre id="sriSnippet" name="sriSnippet" class="is-active"><span style="color: #ffa07a">&lt;script src=</span><span style="color:#abe338">"https://www.autohan.org/js/autohan.js"</span> <span style="color: #ffa07a">integrity=</span><span style="color:#abe338">"sha384-qNERklhOObjoKBqmFdi3IFmgMqdgUC5Z9dpcYUA+2v1zQaafBORAi2cdUvWF9l7o"</span> <span style="color: #ffa07a">crossorigin=</span><span style="color:#abe338">"anonymous"</span><span style="color: #ffa07a">&gt;&lt;/script&gt;</span></pre>
-                
-                 <p>新增手動切換程式碼按鈕：</p><pre>
-            <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan_StranBody()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'AutoHan'</span><span style="color: #ffa07a">&gt;</span>繁體介面<span style="color: #ffa07a">&lt;/a&gt;</span></pre> 
-              <p>最佳實踐是下載 <a href="https://www.autohan.org/js/autohan.js" download>autohan.js</a> 後手動安裝到你自己的網站，無須額外新增SRI HASH支援全球資訊網聯盟(W3C)的子資源完整性<a href="https://www.srihash.org">(SRI)</a>規範。</p>      </li>
-          <li><p>如果你在使用 WordPress ，搜尋 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 外掛即可自動安裝，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下載</a>後手動安裝。即可讓你的網站自動切換至使用者偏好的繁體漢字或簡體漢字。</p></li>
           
-          <li><p>如果你需要閲讀大量來自不同地區和國家的漢文網頁內容，在 Chrome 的網上應用店搜尋 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 外掛即可自動安裝，也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。即可手動將正在瀏覽的網站網頁切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。本外掛歸類於無障礙工具。</p></li>
-          
-          
-            </ol> 
       
        <p>重要提醒：本網站<a href="https://github.com/Zola/zola.github.io/">開放原始碼</a>，且採用公眾領域貢獻宣告(<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">CC0-1.0</a>)發布， 以無償、不主張著作權利之方式提供公眾使用。本網站和本網站提供的 JavaScript 程式碼、Chrome 擴充套件 和 WordPress 外掛 均不收集任何使用者的個人資訊。</p>
         
@@ -429,103 +413,9 @@ pre {
       </div> <a id="about" >&nbsp;</a>
     </div>
      
-        <!-- About -->
-    <section  class="container">
-      <img src="images/logo.svg" width="235" id="logo" alt="漢" title="漢" style="float: right"><h2>為何需要繁簡轉換？</h2>
-        <h4>文化背景</h4>
-      <p>由於不同國家的文化背景的差異，部分讀者在閱讀未被簡化的繁體字（<a href="https://zh.wikipedia.org/wiki/正體字">正體字</a>）時會感到吃力，而另一些讀者則在閱讀簡化的簡體字和<a href="https://zh.wikipedia.org/wiki/異體字">異體字</a>時遇到困難。AutoHan 自動繁簡轉換專案專為解決這一問題設計，旨在幫助所有使用漢字的讀者更輕鬆地理解內容。</p>
-        <h4>技術背景</h4>
-        <p>早期的 BIG5 編碼則支援約 13060 個繁體漢字，但無法顯示簡體字和異體字； GB2312 編碼支援 6763 個簡體漢字，但無法顯示繁體字；如今，更為通用的 UTF-8 編碼能同時顯示繁體和簡體字，甚至支援 emoji 表情符號及其他擴充的新字元，但異體字轉換需求仍未被滿足。</p>
-        <h4>我們的解決方案</h4>
-        <p>
-            AutoHan 是一款 JavaScript 工具，能自動對應轉換 1275 個簡體字與繁體字。它適用於 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome 擴充套件</a> 以及任何漢字網站，有助於提升個人或網站訪客的閱讀效率。這款工具特別適合用於民宿電商、個人網站等場景，為使用者提供簡易的多語言介面解決方案，進一步提升客戶轉化率，同時不影響網站的載入速度。
-            
-             </p>
-         <h4>重要提醒</h4>
-        <p>
-           
-            AutoHan 不支援詞語級的地域用詞轉換，無法將「賓士」轉換成「賓士」，或將「賈伯斯」轉換為「喬布斯」。若需地域用詞轉換，可使用「<a href="https://zuo.la/hanzi/fanjian.php">線上繁簡轉換</a>」工具體驗 <a href="https://github.com/BYVoid/OpenCC">OpenCC</a> 的地域用詞轉換功能。若需精確的出版級轉換，建議嘗試帶有自定義轉換詞典功能的付費版，可以實現「中華臺北」轉換為「臺灣」，「華人」轉換為「漢人」。
-            
-        
-
-<h2>運作方式介紹</h2>
-        <p>透過辨識瀏覽器預設優先支援的語言型別（你現在的優先瀏覽器語言是<script>document.write(languages)</script>），來決定作何種轉換。習慣繁體漢字的讀者看到的是繁體內容，習慣簡體漢字的人看到的是簡體內容。
-
-還能借助瀏覽器 cookies 來記住你偏好的語言的設定。使用者可以<a href="https://support.google.com/chrome/answer/173424">變更 Google Chrome 瀏覽器的語言</a>優先順序，測試這個網站在不同地區的語言的瀏覽器裡的不同表現。</p><p><iframe id="video" width="100%" height="450" src="https://www.youtube.com/embed/ZVzJm9aM98Y?si=H4-CBm2KhFJSlHP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </p>
-
-<h2>如何提供反饋</h2>
-<p style="margin-bottom: 2rem"><a id="donate" > </a> 本專案的維護者是<a href="https://zuo.la">佐拉</a>，歡迎傳送電子郵件至 <a href="mailto:zuola.com@gmail.com?subject=關於Autohan我有一些想法想跟你分享&body=HI，Zola，我使用了AutoHan，我有一些想法如下：">zuola.com@gmail.com</a> ，或前往<a href="https://wordpress.org/support/plugin/autohan/">技術支援論壇</a>提供意見反應。</p>
-        
-        
-        <h2>如何提供贊助</h2>
-<p>感謝您使用 AutoHan！ 您的贊助對我是非常重要的鼓勵。
-    
-    想要支援我嗎？下面是一些打賞的方法：</p>
-    <div class="image-container">
-        <a  href="https://line.me/R/ch/1586237320/?forwardPath=/c2c/transfer&no=25190077070">  <img src="images/line_donate.svg"></a>
-        
-        <a href="https://cash.app/$zuola"><img src="images/cash_donate.svg"></a>
-        
-       <a  href="wxp://f2f0LX4LnkY4sXj6Y8rI0ByAWUc_eWeUtKEi"> <img src="images/wechat_donate.svg"></a>
-        
-        <a  href="https://qr.alipay.com/apoqy7hwhtbe2dgr0f"><img src="images/alipay_donate_t.svg"></a>
-      
-        <a href="https://www.paypal.com/paypalme/zuoia/20"><img src="images/paypal_donate.svg"></a>
-         </div>
-           
-          </section>
-     
-      
-      
-      
-   <section class="container">  
-        <h2>成為企業贊助商</h2>
-       <p>
-           本專案的維護者<a href="https://www.zuola.com/">佐拉</a>投入了大量時間與精力，致力於為使用者提供無縫的體驗。為了實現頂級的使用者體驗，曾採用業界昂貴的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服務，達到低至 0.4ms 的 ICMP 響應速度，同時全面支援 IPv6 和 IPv4。 </p> <p>
-
-       目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 和 <a href="https://www.Cloudflare.com/">Cloudflare</a> 進行主機託管，加之域名 AutoHan.org <a href="https://who.is/whois/autohan.org">已支付未來十年</a>的使用費用。即使維護者<a href="https://zuo.la">佐拉</a>不幸去世，只要 Microsoft 公司和 Cloudfalre 公司能在十年內持續運營，這個網站仍能穩定執行。且本站程式碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，採用公眾領域<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">無著作權</a>宣告，任何人可複製本站。異體字不會消失，使用者對本站功能的需求也會持續存在。</p> <p>
-
-本站提供的 JavaScript 程式碼、<a href="https://chrome.google.com/webstore/search/AutoHan">Chrome 擴充套件</a> 和 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress 外掛</a> 均不收集使用者的個人資訊，並且完全不涉及商業化。誠摯歡迎各位<a href="#donate">打賞支援</a>，也歡迎企業<a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的贊助商&body=HI，Zola，我看到了AutoHan，我想贊助主機託管費用。" >贊助</a>主機託管費用，共同分擔網路租用成本，讓我們攜手維護這一公益專案。
-           
-            </p>
-<table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top">        
-    USD$1000 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的青銅贊助商&body=HI，Zola，我看到了AutoHan，我想成為青銅贊助商。" style="float: right;padding-right: 3em;;display: block">選擇</a><hr style="clear: both"> 
-<span style="clear: both;display: block">青銅贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁底部放一個60px*100px的小LOGO。 <hr></td><td style="width:33%;vertical-align: text-top">
-USD$2500 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的白銀贊助商&body=HI，Zola，我看到了AutoHan，我想成為白銀贊助商。" style="float: right;padding-right: 3em;display: block">選擇</a><hr style="clear: both;"> 
-<span style="clear: both;display: block">白銀贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁放一個80px*140px的醒目的LOGO。 <hr></td><td style="width:34%;vertical-align: text-top">
-USD$5000 每年 <a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的黃金贊助商&body=HI，Zola，我看到了AutoHan，我想成為黃金贊助商。" style="float: right;padding-right: 3em;display: block">選擇</a><hr style="clear: both">   
-<span style="clear: both;display: block">黃金贊助商</span> <hr>讓本站遷移到Google CDN，得到全球頂級訪問速度。贊助商可在本站首頁放一個80px*140px的醒目的LOGO和網站連結。 <hr>
-        </td></tr></tbody></table>
-        
        
+      
        
-        <h2>企業贊助商</h2>
-       <table style="width:100%"> <tbody><tr><td style="width:33%;vertical-align: text-top;text-align: center">  
-       <h4>金牌贊助商</h4>
-           <hr></td><td style="width:33%;vertical-align: text-top;text-align: center">
-           	<h4>白銀贊助商</h4>	
-            <hr></td><td style="width:33%;vertical-align: text-top;text-align: center">
-           	<h4>青銅贊助商</h4>	
-           <hr></td></tr>
-           
-         <tr><td style="width:33%;vertical-align: text-top;text-align: center">  
-             <img src="images/zuola_tech_logo.svg" width="100"><br>
-        <a href="https://www.xn--qqq44c53cd8xokat1ttz0brw1c.com/">佐拉科技</a>
-           <hr></td><td style="width:33%;vertical-align: text-top;text-align: center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 64 64" enable-background="new 0 0 64 64"><path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50
-	l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z" fill="#43a047"/></svg>
-<br>
-             你的品牌
-            <hr></td><td style="width:33%;vertical-align: text-top;text-align: center">
-             
-             <svg xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 448 512">
-  <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" fill="#43a047"/>
-</svg>
-<br>
-           歡迎贊助
-           <hr></td></tr>  </tbody></table>    
-  </section>
   <!-- Footer -->
        <hr>
     <footer class="container">
