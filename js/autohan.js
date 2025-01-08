@@ -1,18 +1,18 @@
-// 配置當前網頁使用的語言型別 ("traditional" 或 "simplified")
-const currentLanguage = "traditional"; // 假設當前網頁是繁體
-//const currentLanguage = "simplified"; // 假設當前網頁是簡體
+// 配置當前網頁使用的漢字型別 ("traditional" 或 "simplified")
+const currentLanguage = "traditional"; // 假設當前網頁是繁體漢字
+//const currentLanguage = "simplified"; // 假設當前網頁是简体汉字
 const conversionDelay = 200; // 設定網頁載入後轉換延遲時間 (毫秒)
 
-// 檢測使用者瀏覽器的優先語言
+// 檢測使用者瀏覽器的優先漢字型別
 function getBrowserLanguage() {
     const lang = navigator.language || navigator.userLanguage;
 
     if (lang.match(/^zh-(cn|sg|my)/i) || lang.match(/^zh-hans/i)) {
-        return "simplified"; // 如果是簡體中文
+        return "simplified"; // 如果是简体汉字型別
     } else if (lang.match(/^zh-(tw|hk|mo)/i) || lang.match(/^zh/i) || lang.match(/^jp/i) || lang.match(/^ja/i) || lang.match(/^ko/i) || lang.match(/^zh-hant/i)) {
-        return "traditional"; // 如果是繁體中文或其他相關語言
+        return "traditional"; // 如果是繁體中文或其他相關漢字型別
     } else {
-        return currentLanguage; // 預設返回 "traditional"
+        return currentLanguage; // 預設返回 漢字型別為 "traditional"
     }
 }
 
@@ -97,16 +97,16 @@ function convertPage(newLanguage) {
     traverseAndConvert(document.body);
 }
 
-// 手動切換語言並更新 indicator
+// 手動切換漢字型別並更新 indicator
 window.AutoHan = function () {
-    // 獲取使用者儲存的語言
+    // 獲取使用者儲存的漢字型別
     const savedLanguage = getCookie("userLanguage");
 
     // 根據 savedLanguage 設定 newLanguage
     const newLanguage = savedLanguage === "traditional" ? "simplified" : "traditional";
-    // 新的語言的值寫入cookie中
-    setCookie("userLanguage", newLanguage, 300); // 記錄使用者語言到 Cookie
-    convertPage(newLanguage); // 手動轉換頁面語言
+    // 新的漢字型別的值寫入cookie中
+    setCookie("userLanguage", newLanguage, 300); // 記錄使用者漢字型別到 Cookie
+    convertPage(newLanguage); // 手動轉換頁面漢字型別
 
 };
 
@@ -115,22 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
     (function main() {
         const browserLanguage = getBrowserLanguage();
         const savedLanguage = getCookie("userLanguage");
-        // 如果Cookie 記錄的語言和當前網頁語言相同不一致，則延遲進行轉換
+        // 如果Cookie 記住的漢字型別和當前網頁漢字型別相同不一致，則延遲進行轉換
         if ((savedLanguage) && (savedLanguage !== currentLanguage)) {
 
             setTimeout(() => {
-                convertPage(savedLanguage); // 轉換到目標語言
+                convertPage(savedLanguage); // 轉換到目標漢字型別
                 setCookie("userLanguage", savedLanguage, 300); // 更新 Cookie ，存300天
             }, conversionDelay);
             return;
         } else if (browserLanguage === currentLanguage) {
 
-            // 如果瀏覽器語言和當前網頁語言相同，不做任何轉換
-            setCookie("userLanguage", browserLanguage, 300); // 記錄使用者語言到 Cookie
+            // 如果瀏覽器漢字型別和當前網頁漢字型別相同，不做任何轉換
+            setCookie("userLanguage", browserLanguage, 300); // 記錄使用者漢字型別到 Cookie
             return;
         } else {
             setTimeout(() => {
-                convertPage(browserLanguage); // 轉換到目標語言
+                convertPage(browserLanguage); // 轉換到目標漢字型別
                 setCookie("userLanguage", browserLanguage, 300); // 更新 Cookie ，存300天
             }, conversionDelay);
             return;
