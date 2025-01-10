@@ -40,7 +40,7 @@ a {
 
   color: #463ff7
 }
-
+          #consentbutton a { color: #cff288 }
 #app a {
   text-decoration: none;
 
@@ -293,7 +293,7 @@ pre {
 .btn{
   padding: 0px;
  
-    background-color: rgb(51, 51, 51, 0.42);
+    background-color: rgb(51, 51, 51, 0.82);
   border-radius: 4px;
   color:  #fff;
   cursor: pointer;
@@ -415,10 +415,10 @@ pre {
                 
                  <p>新增手動切換程式碼按鈕：</p><pre>
             <span style="color: #ffa07a">&lt;a href=</span><span style="color:#abe338">'javascript:AutoHan()'</span> <span style="color: #ffa07a">id=</span><span style="color:#abe338">'AutoHan'</span><span style="color: #ffa07a">&gt;</span>繁體介面<span style="color: #ffa07a">&lt;/a&gt;</span></pre> 
-              <p>最佳實踐是下載 <a href="https://www.autohan.org/js/autohan.js" download>autohan.js</a> 後手動安裝到你自己的網站，即便本站更新代碼，你無須額外更新全球資訊網聯盟(W3C)規範的子資源完整性<a href="https://www.srihash.org"> ( SRI ) </a>的 HASH值，即上面 Javascript 代碼中的 integrity 值。</p>      </li>
+              <p>最佳實踐是下載 <a href="https://www.autohan.org/js/autohan.js" download>autohan.js</a> 後手動安裝到你自己的網站，即便本站更新代碼，你無須為了遵循全球資訊網聯盟(W3C)的子資源完整性<a href="https://www.srihash.org"> ( SRI ) </a>的規範，額外花時間同步更新上面 Javascript 代碼中的 integrity HASH 值。</p>      </li>
           <li><p>如果你在使用 WordPress ，搜尋 <a href="https://tw.wordpress.org/plugins/search/autohan/">AutoHan</a> 外掛即可自動安裝，也可<a href="https://downloads.wordpress.org/plugin/autohan.zip" >下載</a>後手動安裝。即可讓你的網站自動切換至使用者偏好的繁體漢字或簡體漢字。</p></li>
           
-          <li><p>如果你需要閲讀大量來自不同地區和國家的漢文網頁內容，在 Chrome 的網上應用店搜尋 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 外掛即可自動安裝，也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。即可手動將正在瀏覽的網站網頁切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。本外掛歸類於無障礙工具。</p></li>
+          <li><p>如果你常使用Chrome 瀏覽器閲讀大量漢文網頁內容，在網上應用店安裝 <a href="https://chrome.google.com/webstore/search/AutoHan">AutoHan</a> 擴充套件，即可將正在瀏覽的網頁手動切換至繁體漢字介面或簡體漢字介面，從而加快閱讀速度。也可<a href="/autohan_chrome_extension.zip">下載</a>後<a href="https://support.google.com/chrome/a/answer/2714278?hl=zh-Hant">手動安裝</a>。本外掛歸類於無障礙工具。</p></li>
           
           
             </ol> 
@@ -439,13 +439,13 @@ pre {
         <p>早期的 BIG5 編碼則支援約 13060 個繁體漢字，但無法顯示簡體字和異體字； GB2312 編碼支援 6763 個簡體漢字，但無法顯示繁體字；如今，更為通用的 UTF-8 編碼能同時顯示繁體和簡體字，甚至支援 emoji 表情符號及其他擴充的新字元，但異體字轉換需求仍未被滿足。</p>
         <h4>我們的解決方案</h4>
         <p>
-            AutoHan 是一款 JavaScript 工具，能自動對應轉換 1275 個簡體字與繁體字。它適用於 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome 擴充套件</a> 以及任何漢字網站，有助於提升個人或網站訪客的閱讀效率。這款工具特別適合用於民宿電商、個人網站等場景，為使用者提供簡易的多語言介面解決方案，進一步提升客戶轉化率，同時不影響網站的載入速度。
+            AutoHan 是一款 JavaScript 工具，能自動對應轉換約 1275 個異體字。它適用於 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress</a> 、 <a href="https://chrome.google.com/webstore/detail/kmnajldildkckmfgfbcfbfimdibebnjl">Chrome 擴充套件</a> 以及任何漢字網站，有助於提升個人或網站訪客的閱讀效率。這款工具特別適合用於民宿電商、個人網站等場景，為使用者提供簡易的多語言介面解決方案，進一步提升客戶轉化率，同時不影響網站的載入速度。
             
              </p>
          <h4>重要提醒</h4>
         <p>
            
-            AutoHan 不支援詞語級的地域用詞轉換，無法將「賓士」轉換成「奔馳」，或將「賈伯斯」轉換為「喬布斯」。若需地域用詞轉換，可使用「<a href="https://zuo.la/hanzi/fanjian.php">線上繁簡轉換</a>」工具體驗 <a href="https://github.com/BYVoid/OpenCC">OpenCC</a> 的地域用詞轉換功能。若需精確的出版級轉換，建議嘗試帶有自定義轉換詞典功能的付費版，可以實現「中華臺北」轉換為「臺灣」，「大陸」轉換為「中国」，「華人」轉換為「漢人」。
+            AutoHan 不支援詞語級的地域用詞轉換，無法將「賓士」轉換成「奔驰」，或將「賈伯斯」轉換為「乔布斯」。若需地域用詞轉換，可使用「<a href="https://zuo.la/hanzi/fanjian.php">線上繁簡轉換</a>」工具體驗 <a href="https://github.com/BYVoid/OpenCC">OpenCC</a> 的地域用詞轉換功能。若需精確的出版級轉換，建議嘗試帶有自定義轉換詞典功能的付費版，可以實現「中華臺北」轉換為「台湾」，「大陸」轉換為「中国」，「華人」轉換為「汉人」。
             
         
 
@@ -485,7 +485,7 @@ pre {
        <p>
            本專案的維護者<a href="https://www.zuola.com/">佐拉</a>投入了大量時間與精力，致力於為使用者提供無縫的體驗。為了實現頂級的使用者體驗，曾採用業界昂貴的 Google Cloud Storage 和 Google Cloud CDN 提供全球加速服務，達到低至 0.4ms 的 ICMP 響應速度，同時全面支援 IPv6 和 IPv4。 </p> <p>
 
-       目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 和 <a href="https://www.Cloudflare.com/">Cloudflare</a> 進行主機託管，加之域名 AutoHan.org <a href="https://who.is/whois/autohan.org">已支付未來十年</a>的使用費用。即使維護者<a href="https://zuo.la">佐拉</a>不幸去世，只要 Microsoft 公司和 Cloudfalre 公司能在十年內持續運營，這個網站仍能穩定執行。且本站程式碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，採用公眾領域<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">無著作權</a>宣告，任何人可複製本站。異體字不會消失，使用者對本站功能的需求也會持續存在。</p> <p>
+       目前，為了降低運營成本，網站已轉為使用 <a href="https://www.github.com/">Github</a> 和 <a href="https://www.Cloudflare.com/">Cloudflare</a> 進行主機託管，加之域名 AutoHan.org <a href="https://who.is/whois/autohan.org">已支付未來十年</a>的使用費用。即使維護者<a href="https://zuo.la">佐拉</a>不幸去世，只要 Microsoft 公司和 Cloudfalre 公司能在十年內持續運營，這個網站仍能穩定運行。且本站程式碼<a href="https://github.com/Zola/zola.github.io/">開源</a>，採用公眾領域<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant" title="無著作權">無著作權</a>宣告，任何人可複製本站。異體字不會消失，使用者對本站功能的需求也會持續存在。</p> <p>
 
 本站提供的 JavaScript 程式碼、<a href="https://chrome.google.com/webstore/search/AutoHan">Chrome 擴充套件</a> 和 <a href="https://tw.wordpress.org/plugins/autohan/">WordPress 外掛</a> 均不收集使用者的個人資訊，並且完全不涉及商業化。誠摯歡迎各位<a href="#donate">打賞支援</a>，也歡迎企業<a href="mailto:zuola.com@gmail.com?subject=我想成為AutoHan的贊助商&body=HI，Zola，我看到了AutoHan，我想贊助主機託管費用。" >贊助</a>主機託管費用，共同分擔網路租用成本，讓我們攜手維護這一公益專案。
            
